@@ -6,13 +6,22 @@
   -Create .env file and add to gitignore
   -Create a new database
 
-MAKE:
+## MAKE:
 
 -Plan new schema
 -Create ERD using Mermaid
 -Edit the reset-database.js ensuring it reflects the new Schema
 -Run the 'npm run reset-database' command to checkthe script works
 
-USE EXISTING:
+## USE EXISTING:
 
-- Begin to make the handlers ad helper functions work
+1. Begin to make the get handlers and helper functions work
+
+- create query string in helper function,
+- pool query string accessing database,
+- return result.rows,
+- in app.js await for a data from body request,
+- send back response containing data,
+- catch any errors.
+
+2. Make a POST requests working

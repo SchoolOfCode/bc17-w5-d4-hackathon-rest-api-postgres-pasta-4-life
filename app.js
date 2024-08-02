@@ -8,7 +8,7 @@ import {
   createResourceOne,
   updateResourceOneById,
   deleteResourceOneById,
-} from "./resource_one.js";
+} from "./directors.js";
 
 // Import your helper functions for your second resource here
 // import {
@@ -30,16 +30,14 @@ app.use(express.json()); // express.json() middleware is used to parse incoming 
 
 // Endpoint to retrieve all directors information for every director
 app.get("/directors/", async function (req, res) {
-  // await function to retrieve all director information for every director 
+  // await function to retrieve all director information for every director
   try {
-    const data = await getDirectors()
-
+    const data = await getDirectors();
     console.log("I'm alive");
     res.status(200).send(data);
   } catch (error) {
-    console.error("Incorrect")
+    console.error("Incorrect");
   }
-  
 });
 
 // Endpoint to retrieve a <resource_one> by id
