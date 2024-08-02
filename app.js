@@ -1,16 +1,16 @@
 // Import the required modules
 import express from "express";
-import dotenv from "dotenv";
-import {pool} from 'pg';
+// import dotenv from "dotenv";
+// import {pool} from 'pg';
 
 
  //Import your helper functions for your first resource here
  import {
-   getDirectors,
-   getResourceOneById,
-   createResourceOne,
-   updateResourceOneById,
-   deleteResourceOneById,
+    getDirectors,
+    getDirectorsById
+  //  createResourceOne,
+  //  updateResourceOneById,
+  //  deleteResourceOneById,
  } from "./directors.js";
 
 // Import your helper functions for your second resource here
@@ -33,17 +33,27 @@ app.use(express.json()); // express.json() middleware is used to parse incoming 
 
 // Endpoint to retrieve all <directors>
 app.get("/directors/", async function (req, res) {
- try {
- const directorData; getDirectors
-res.status(200).send("I'm alive!");
+  try {
+  const directorData = await getDirectors();
+  res.status(200).json({success: true, payload: directorData});
+} catch (error) {
+  res.status(400).json({success: false, payload: "There's an error and it is your fault!"})
+  console.error("Error in data requested")
+}
   
- } catch (error) {
-  
-
 });
 
 // Endpoint to retrieve a <resource_one> by id
-app.get("/resourceone/:id", async function (req, res) {});
+app.get("/directors/:id", async function (req, res) {
+  try {
+    const id = req.params.id
+    const directorData = await getDirectorsByID(id);
+    res.status(200).json({success: true, payload: directorData})
+  } catch (error) {
+    res.status(400).json({success: false, payload: "Incorrect data request by user"})
+    console.error("Error in data requested")
+  }
+});
 
 // Endpoint to create a new <resource_one>
 app.post("/resourceone/", async function (req, res) {});

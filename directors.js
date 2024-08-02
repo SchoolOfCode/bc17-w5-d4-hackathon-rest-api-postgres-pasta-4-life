@@ -9,7 +9,7 @@ export async function getDirectors() {
   return result.rows;
 }
 
-export async function getDirector(id) {
+export async function getDirectorsById(id) {
   // Query the database and return the resource with a matching id or null
   const query = "SELECT * FROM directors WHERE id = $1";
   // Result from pooling database
