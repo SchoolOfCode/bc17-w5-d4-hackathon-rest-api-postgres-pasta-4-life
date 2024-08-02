@@ -17,8 +17,18 @@ export async function getDirectorsById(id) {
   return result.rows[0] || null;
 }
 
-export async function createResourceOne(resource) {
+export async function createDirector(director) {
   // Query the database to create an resource and return the newly created resource
+  // Database query
+  const query = `INSERT INTO directors (name)
+                VALUES ($1)
+                RETURNING *`;
+
+  // Get director name from body request
+  const name = director.name;
+  const result = await pool.query(query, [name]);
+  // Result comes back as an array with one object hence [0]
+  return result.rows[0];
 }
 
 export async function updateResourceOneById(id, updates) {
