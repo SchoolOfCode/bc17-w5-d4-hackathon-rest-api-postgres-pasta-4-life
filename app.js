@@ -1,14 +1,17 @@
 // Import the required modules
 import express from "express";
+import dotenv from "dotenv";
+import {pool} from 'pg';
 
-// Import your helper functions for your first resource here
-import {
-  getDirectors,
-  getDirector,
-  createResourceOne,
-  updateResourceOneById,
-  deleteResourceOneById,
-} from "./directors.js";
+
+ //Import your helper functions for your first resource here
+ import {
+   getDirectors,
+   getResourceOneById,
+   createResourceOne,
+   updateResourceOneById,
+   deleteResourceOneById,
+ } from "./directors.js";
 
 // Import your helper functions for your second resource here
 // import {
@@ -28,11 +31,19 @@ app.use(express.json()); // express.json() middleware is used to parse incoming 
 
 // Resource One Route Handlers
 
-// Endpoint to retrieve all directors information for every director
-app.get("/directors/", async function (req, res) {});
+// Endpoint to retrieve all <directors>
+app.get("/directors/", async function (req, res) {
+ try {
+ const directorData; getDirectors
+res.status(200).send("I'm alive!");
+  
+ } catch (error) {
+  
+
+});
 
 // Endpoint to retrieve a <resource_one> by id
-app.get("/directors/:id", async function (req, res) {});
+app.get("/resourceone/:id", async function (req, res) {});
 
 // Endpoint to create a new <resource_one>
 app.post("/resourceone/", async function (req, res) {});
@@ -67,26 +78,3 @@ app.delete("/resourcetwo/:id", async function (req, res) {});
 app.listen(PORT, function () {
   console.log(`Server listening on port ${PORT}`);
 });
-
-// await function to retrieve all director information for every director
-// try {
-//   // Get data from helper function
-//   const data = await getDirectors();
-//   // Send back response if correct
-//   res.status(200).json({ success: true, payload: data });
-// } catch (error) {
-//   console.error("Problem getting data");
-//   // Send back response if incorrect
-//   res.status(400).json({ success: false, payload: null });
-// }
-
-// try {
-//   // Get current ID from request params
-//   const id = req.params.id;
-//   // Get data from helper function
-//   const data = await getDirector(id);
-//   res.status(200).json({ success: true, payload: data });
-// } catch (error) {
-//   console.log(error);
-//   res.status(400).json({ success: false, payload: null });
-// }
