@@ -8,10 +8,10 @@
 
 ## MAKE:
 
--Plan new schema
--Create ERD using Mermaid
--Edit the reset-database.js ensuring it reflects the new Schema
--Run the 'npm run reset-database' command to checkthe script works
+- Plan new schema
+- Create ERD using Mermaid
+- Edit the reset-database.js ensuring it reflects the new Schema
+- Run the 'npm run reset-database' command to checkthe script works
 
 ## USE EXISTING:
 
