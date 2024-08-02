@@ -3,10 +3,18 @@ import { pool } from "./db/index.js";
 
 export async function getDirectors() {
   // Query the database and return all resource ones
+  const query = "SELECT * FROM directors";
+  // Result from pooling database
+  const result = await pool.query(query);
+  return result.rows;
 }
 
-export async function getResourceOneById(id) {
+export async function getDirector(id) {
   // Query the database and return the resource with a matching id or null
+  const query = "SELECT * FROM directors WHERE id = $1";
+  // Result from pooling database
+  const result = await pool.query(query, [id]);
+  return result.rows[0] || null;
 }
 
 export async function createResourceOne(resource) {

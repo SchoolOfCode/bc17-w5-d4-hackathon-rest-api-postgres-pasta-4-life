@@ -4,7 +4,7 @@ import express from "express";
 // Import your helper functions for your first resource here
 import {
   getDirectors,
-  getResourceOneById,
+  getDirector,
   createResourceOne,
   updateResourceOneById,
   deleteResourceOneById,
@@ -32,16 +32,30 @@ app.use(express.json()); // express.json() middleware is used to parse incoming 
 app.get("/directors/", async function (req, res) {
   // await function to retrieve all director information for every director
   try {
+    // Get data from helper function
     const data = await getDirectors();
-    console.log("I'm alive");
-    res.status(200).send(data);
+    // Send back response if correct
+    res.status(200).json({ success: true, payload: data });
   } catch (error) {
-    console.error("Incorrect");
+    console.error("Problem getting data");
+    // Send back response if incorrect
+    res.status(400).json({ success: false, payload: null });
   }
 });
 
 // Endpoint to retrieve a <resource_one> by id
-app.get("/resourceone/:id", async function (req, res) {});
+app.get("/directors/:id", async function (req, res) {
+  try {
+    // Get current ID from request params
+    const id = req.params.id;
+    // Get data from helper function
+    const data = await getDirector(id);
+    res.status(200).json({ success: true, payload: data });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ success: false, payload: null });
+  }
+});
 
 // Endpoint to create a new <resource_one>
 app.post("/resourceone/", async function (req, res) {});
