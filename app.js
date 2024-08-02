@@ -28,12 +28,18 @@ app.use(express.json()); // express.json() middleware is used to parse incoming 
 
 // Resource One Route Handlers
 
-// Endpoint to retrieve all directors
+// Endpoint to retrieve all directors information for every director
 app.get("/directors/", async function (req, res) {
-  // await function to retrieve all directors 
-  const data = await getDirectors()
-  console.log("I'm alive");
-  res.status(200).send("I'm alive!");
+  // await function to retrieve all director information for every director 
+  try {
+    const data = await getDirectors()
+
+    console.log("I'm alive");
+    res.status(200).send(data);
+  } catch (error) {
+    console.error("Incorrect")
+  }
+  
 });
 
 // Endpoint to retrieve a <resource_one> by id
