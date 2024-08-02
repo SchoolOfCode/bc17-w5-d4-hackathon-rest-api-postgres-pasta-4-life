@@ -1,10 +1,10 @@
-PROJECT SETUP:
+# PROJECT SETUP:
 
--Clone the repo
+- Clone the repo
 - Create a database using render
--Install project dependencies
--Create .env file and add to gitignore
--Create a new database 
+  -Install project dependencies
+  -Create .env file and add to gitignore
+  -Create a new database
 
 MAKE:
 
@@ -16,8 +16,3 @@ MAKE:
 USE EXISTING:
 
 - Begin to make the handlers ad helper functions work
-
-
-
-
-

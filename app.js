@@ -2,13 +2,13 @@
 import express from "express";
 
 // Import your helper functions for your first resource here
-// import {
-//   getResourceOne,
-//   getResourceOneById,
-//   createResourceOne,
-//   updateResourceOneById,
-//   deleteResourceOneById,
-// } from "./resource_one.js";
+import {
+  getDirectors,
+  getResourceOneById,
+  createResourceOne,
+  updateResourceOneById,
+  deleteResourceOneById,
+} from "./resource_one.js";
 
 // Import your helper functions for your second resource here
 // import {
@@ -29,7 +29,7 @@ app.use(express.json()); // express.json() middleware is used to parse incoming 
 // Resource One Route Handlers
 
 // Endpoint to retrieve all <resource_one>
-app.get("/resourceone/", async function (req, res) {
+app.get("/directors/", async function (req, res) {
   console.log("I'm alive");
   res.status(200).send("I'm alive!");
 });

@@ -41,10 +41,10 @@ async function resetDatabase() {
     await pool.query(`
         INSERT INTO movies (title, published_date, director_id)
         VALUES 
-            ('Steven Spielberg', '2017-06-02', 1),
-            ('Martin Scorsese', '2020-03-27', 1),
-            ('Christopher Nolan', '1996-06-25', 2),
-            ('Alfred Hitchcock', '2001-09-11', 2);
+            ('Alien', '2017-06-02', 1),
+            ('Once Upon a time in Hollywood', '2020-03-27', 1),
+            ('Django', '1996-06-25', 2),
+            ('Vertigo', '2001-09-11', 2);
     `);
 
     console.log("Database reset successful");
